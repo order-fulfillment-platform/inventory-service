@@ -58,6 +58,7 @@ class InventoryServiceTest {
 		event.setId(UUID.randomUUID());
 		event.setCustomerId(UUID.randomUUID());
 		event.setItems(List.of(item));
+		event.setTotalAmount(new BigDecimal("59.98"));
 
 		Product product = Product.builder()
 				.id(productId)
@@ -94,6 +95,7 @@ class InventoryServiceTest {
 		event.setId(UUID.randomUUID());
 		event.setCustomerId(UUID.randomUUID());
 		event.setItems(List.of(item));
+		event.setTotalAmount(new BigDecimal("59.98"));
 
 		when(productRepository.findById(productId)).thenReturn(Optional.empty());
 		when(objectMapper.writeValueAsString(any())).thenReturn("{}");
@@ -122,6 +124,7 @@ class InventoryServiceTest {
 		event.setId(UUID.randomUUID());
 		event.setCustomerId(UUID.randomUUID());
 		event.setItems(List.of(item));
+		event.setTotalAmount(new BigDecimal("59.98"));
 
 		Product product = Product.builder()
 					.id(productId)
