@@ -16,6 +16,7 @@ import com.ofp.inventoryservice.dto.ProductResponse;
 import com.ofp.inventoryservice.entity.Product;
 import com.ofp.inventoryservice.repository.ProductRepository;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
@@ -28,7 +29,7 @@ public class InventoryController {
 	private final ProductRepository productRepository;
 
 	@PostMapping
-	public ResponseEntity<ProductResponse> createProduct(@RequestBody CreateProductRequest request) {
+	public ResponseEntity<ProductResponse> createProduct(@Valid @RequestBody CreateProductRequest request) {
 		log.info("Received create product request for {}", request.getName());
 
 		Product product = Product.builder()
